@@ -1,0 +1,101 @@
+.pages-hero {
+  font-family: "Against", sans-serif;
+  user-select: none;
+  font-size: 1.6rem;
+  text-align: center;
+  margin-top: 0.8rem;
+  margin-bottom: 0.8rem;
+  position: relative;
+  color: navy;
+}
+
+.modal-overlay-purchase {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content-purchase {
+  max-width: 40rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.close-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+  width: 2.8rem;
+  height: 2.8rem;
+  border: 0px transparent;
+  border-radius: 50%;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+  background-color: lightcoral;
+  box-shadow: 1px 1px 1rem rgba(0, 0, 0, 0.3);
+}
+
+.close-button:hover {
+  cursor: pointer;
+  transition: color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  color: white;
+  background-color: crimson;
+}
+
+.modal-purchase-wrapper {
+  background-color: white;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 2rem rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.purchase-all {
+  width: 20rem;
+  cursor: pointer;
+  font-family: "Against", sans-serif;
+  font-size: 1.4rem;
+  text-align: center;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+  background-color: navy;
+  border: 1px solid black;
+  border-radius: 2rem;
+  padding: 1rem;
+}
+
+.basket-page-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.purchase-success-message {
+  font-family: "Against", sans-serif;
+  padding: 2rem;
+  font-size: 2rem;
+  margin: 1rem;
+  border-radius: 1rem;
+  color: white;
+  background-color: navy;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 0.2);
+}

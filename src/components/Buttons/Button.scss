@@ -1,0 +1,46 @@
+.buttons {
+  display: flex;
+  align-items: center;
+  margin-top: 1.2rem;
+  flex-wrap: wrap;
+
+  .button-component {
+    cursor: pointer;
+    padding: 0.6rem;
+    text-align: center;
+    border: 1px transparent;
+    border-radius: 2rem;
+    color: white;
+    box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
+  }
+
+  .custom-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 2.2rem;
+    height: 2.2rem;
+    border: 1px transparent;
+    background-color: transparent;
+    font-size: 2rem;
+    line-height: 1;
+    margin-left: 1rem;
+    margin-right: 1rem;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  .remove-button {
+    padding: 0.6rem;
+    text-align: center;
+    border: 1px transparent;
+    border-radius: 2rem;
+    color: white;
+    background-color: crimson;
+    box-shadow: 3px 3px 1rem rgba(0, 0, 0, 0.3);
+  }
+  .remove-button:hover {
+    cursor: pointer;
+    background-color: red;
+  }
+}
