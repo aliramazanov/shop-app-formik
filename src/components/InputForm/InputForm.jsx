@@ -1,13 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Formik, Field, ErrorMessage } from "formik";
 import inputValidation from "./InputValidation.js";
 import "./InputForm.scss";
 import SubmitButton from "./SubmitButton";
 
 const InputForm = ({ handleSubmit }) => {
-  const [isPurchaseSuccessful, setIsPurchaseSuccessful] = useState();
+  const [isPurchaseSuccessful, setIsPurchaseSuccessful] = useState(false);
   const handlePurchaseSuccessful = () => {
-    isPurchaseSuccessful = false;
     setIsPurchaseSuccessful(true);
   };
 
