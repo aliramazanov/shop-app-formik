@@ -12,7 +12,6 @@ export const initializeProducts = () => {
         type: SUCCESS_POSTS,
         payload: { products: data.products },
       });
-      console.log("Products initialized successfully");
     } catch (error) {
       dispatch({ type: ERROR_POSTS });
     }

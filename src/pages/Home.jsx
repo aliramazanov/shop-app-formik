@@ -1,36 +1,23 @@
 import ProductList from "../components/ProductList/ProductList";
 import Welcome from "../components/Welcome/Welcome";
 import Modal from "../components/Modal/Modal";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { initializeProducts } from "../store/actions/initializeProducts";
 
-export default function Home({
-  favourites,
-  products,
-  handleOpenModalButton,
-  isModalOpen,
-  currentModalData,
-  closeModal,
-  handleContinueButtonClick,
-  makeFavourite,
-  makeNonFavourite,
-}) {
+export default function Home() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(initializeProducts());
+  }, []);
+  const products = useSelector((state) => state.fetchProducts.products);
+  const isModalOpen = useSelector((state) => state.modal.isModalOpen);
+
   return (
     <div>
       <Welcome />
-      <ProductList
-        products={products}
-        favourites={favourites}
-        isBasketPage={false}
-        handleOpenModalButton={handleOpenModalButton}
-        makeFavourite={makeFavourite}
-        makeNonFavourite={makeNonFavourite}
-      />
-      {isModalOpen && (
-        <Modal
-          details={currentModalData}
-          closeModal={closeModal}
-          handleContinueButtonClick={handleContinueButtonClick}
-        />
-      )}
+      <ProductList products={products} isBasketPage={false} />
+      {isModalOpen && <Modal />}
     </div>
   );
 }

@@ -1,18 +1,30 @@
+import { useDispatch, useSelector } from "react-redux";
+import { clearSelectedProduct } from "../../store/actions/selectProduct";
+import { addToBasket } from "../../store/actions/basketActions";
+import { closeModal } from "../../store/actions/modalChanges";
 import "./Modal.scss";
 
-export default function Modal({
-  details,
-  closeModal,
-  handleContinueButtonClick,
-}) {
-  if (!details) {
-    return null;
-  }
-
+export default function Modal() {
+  const details = useSelector((state) => state.modal.currentModalData);
   const { header, text, actions, renderButton } = details;
+  const dispatch = useDispatch();
+  const selectedProduct = useSelector((state) => state.selectedProduct);
+
+  const handleContinueButtonClick = () => {
+    if (selectedProduct) {
+      dispatch(addToBasket(selectedProduct));
+      dispatch(clearSelectedProduct());
+      dispatch(closeModal());
+    }
+  };
+
+  const handleClosingOfModal = () => {
+    dispatch(clearSelectedProduct());
+    dispatch(closeModal());
+  };
 
   return (
-    <div className="modal-part" onClick={closeModal}>
+    <div className="modal-part" onClick={handleClosingOfModal}>
       <div
         className="modal-wrapper"
         onClick={(event) => event.stopPropagation()}
@@ -21,7 +33,10 @@ export default function Modal({
           <div className="header-of-modal">{header}</div>
           <div className="header-close-button">
             {renderButton && (
-              <button className="modal-close-button" onClick={closeModal}>
+              <button
+                className="modal-close-button"
+                onClick={handleClosingOfModal}
+              >
                 X
               </button>
             )}
@@ -31,7 +46,7 @@ export default function Modal({
           <div className="text-of-modal">{text}</div>
           <div className="actions-of-modal">
             <div className="actions-of-modal">
-              {actions(closeModal, handleContinueButtonClick)}
+              {actions(handleClosingOfModal, handleContinueButtonClick)}
             </div>
           </div>
         </div>

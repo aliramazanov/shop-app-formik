@@ -1,19 +1,17 @@
-import React, { useState } from "react";
-import InputForm from "../components/InputForm/InputForm.jsx";
+import { useSelector } from "react-redux";
+import ProductList from "../components/ProductList/ProductList";
+import InputForm from "../components/InputForm/InputForm";
 import inputValidation from "../components/InputForm/InputValidation.js";
-import ProductList from "../components/ProductList/ProductList.jsx";
 import "./PageStyles.scss";
+import { useState } from "react";
 
-export default function Basket({
-  products,
-  makeFavourite,
-  makeNonFavourite,
-  favourites,
-  removeProduct,
-  handleSubmit,
-}) {
+export default function Basket() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [purchaseSuccessful, setPurchaseSuccessful] = useState(false);
+  const favourites = useSelector(
+    (state) => state.favouritedProducts.favourites
+  );
+  const basket = useSelector((state) => state.basketProducts.basket);
 
   const openModal = () => {
     setIsModalOpen(true);
@@ -37,22 +35,21 @@ export default function Basket({
     }, 5000);
   };
 
+  const handleSubmit = (values, { resetForm }) => {
+    resetForm();
+  };
+
   return (
-    <div className="basket-page-wrapper">
+    <div className="basket-page">
       <h2 className="pages-hero">Curated Delights Await in Your Basket</h2>
       <button className="purchase-all" onClick={openModal}>
         Purchase All
       </button>
-
       <ProductList
         favourites={favourites}
-        products={products}
-        makeFavourite={makeFavourite}
-        makeNonFavourite={makeNonFavourite}
+        products={basket}
         isBasketPage={true}
-        removeProduct={removeProduct}
       />
-
       {isModalOpen && (
         <div className="modal-overlay-purchase" onClick={handleModalClick}>
           <div className="modal-purchase-wrapper">
