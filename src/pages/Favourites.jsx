@@ -1,8 +1,7 @@
-import React from "react";
+import { useSelector } from "react-redux";
 import ProductList from "../components/ProductList/ProductList";
 import Modal from "../components/Modal/Modal";
 import "./PageStyles.scss";
-import { useSelector } from "react-redux";
 
 export default function Favourites() {
   const favourites = useSelector(

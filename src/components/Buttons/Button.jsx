@@ -1,7 +1,7 @@
 import { useDispatch } from "react-redux";
-import modalData from "../../modalData";
 import { setSelectedProduct } from "../../store/actions/selectProduct";
 import { openModal } from "../../store/actions/modalChanges";
+import modalData from "../../modalData";
 import "./Button.scss";
 
 export default function Button({ backgroundColor, text, product }) {

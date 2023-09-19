@@ -1,9 +1,9 @@
-import ProductList from "../components/ProductList/ProductList";
-import Welcome from "../components/Welcome/Welcome";
-import Modal from "../components/Modal/Modal";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import { initializeProducts } from "../store/actions/initializeProducts";
+import ProductList from "../components/ProductList/ProductList";
+import Welcome from "../components/Welcome/Welcome";
+import Modal from "../components/Modal/Modal";
 
 export default function Home() {
   const dispatch = useDispatch();

@@ -1,9 +1,9 @@
+import { useState } from "react";
 import { useSelector } from "react-redux";
 import ProductList from "../components/ProductList/ProductList";
 import InputForm from "../components/InputForm/InputForm";
 import inputValidation from "../components/InputForm/InputValidation.js";
 import "./PageStyles.scss";
-import { useState } from "react";
 
 export default function Basket() {
   const [isModalOpen, setIsModalOpen] = useState(false);

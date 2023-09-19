@@ -1,7 +1,4 @@
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
 import { Route, Routes, BrowserRouter } from "react-router-dom";
-import { initializeProducts } from "./store/actions/initializeProducts";
 
 import Favourites from "./pages/Favourites";
 import Basket from "./pages/Basket";
